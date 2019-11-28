@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8D3F583E-3D67-54A6-5133-7165434E2561}</ProjectGuid>
+    <ProjectGuid>{03FA3872-E300-00F1-E49A-7A9F156D744E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\Packer.cs" />
-     <Compile Include="Assets\Editor\Util.cs" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>D:/Program Files/Unity5.6.6f2/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -105,7 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{04F01976-420A-13B5-A1C1-8530397BD2A2}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{FE3AC9A6-61D2-7E3E-8D3E-F9C536EFF114}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

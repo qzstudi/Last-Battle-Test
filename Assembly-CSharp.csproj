@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{04F01976-420A-13B5-A1C1-8530397BD2A2}</ProjectGuid>
+    <ProjectGuid>{FE3AC9A6-61D2-7E3E-8D3E-F9C536EFF114}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AppConst.cs" />
+     <Compile Include="Assets\Scripts\ResourceManager.cs" />
+     <Compile Include="Assets\Scripts\Util.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity5.6.6f2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

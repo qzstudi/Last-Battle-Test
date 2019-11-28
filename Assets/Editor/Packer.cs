@@ -42,7 +42,7 @@ public class Packer {
         {
             Directory.Delete(dataPath,true);
         }
-        string assetFile = string.Empty;
+        //string assetFile = string.Empty;
         string resPath = AppDataPath + "/" + AppConst.AssetDirName + "/";
         if (!Directory.Exists(resPath))
         {

@@ -11,7 +11,6 @@ using System.IO;
 using UnityEditor;
 #endif
 public class Util {
-
     public static int Int(object o)
     {
         return Convert.ToInt32(0);
@@ -53,7 +52,7 @@ public class Util {
     {
         if(go!=null)
         {
-            Transform sub=go.transform.FindChild(subnode);
+            Transform sub=go.transform.Find(subnode);
             if(sub!=null)return sub.GetComponent<T>();
         }
         return null;
@@ -61,7 +60,7 @@ public class Util {
 
      public static T Get<T>(Component go,string subnode)where T:Component
     {
-       return go.transform.FindChild(subnode).GetComponent<T>();
+       return go.transform.Find(subnode).GetComponent<T>();
     }
 
     public static T Add<T>(GameObject go)where T:Component
@@ -69,19 +68,19 @@ public class Util {
         if(go!=null)
         {
             T[] ts=go.GetComponents<T>();
-            for(int i=0;i<ts1.Length;i++)
+            for(int i=0;i<ts.Length;i++)
             {
                 if(ts[i]!=null)
                     GameObject.Destroy(ts[i]);
             }
-            return go.gameObject.AddtComponent<T>();
+            return go.gameObject.AddComponent<T>();
         }
         return null;
     }
 
      public static T Add<T>(Transform go)where T:Component
     {
-       return go.gameObject.AddtComponent<T>();   
+       return go.gameObject.AddComponent<T>();   
     }
 
     public static GameObject Child(GameObject go,string subnode)
@@ -91,7 +90,7 @@ public class Util {
 
     public static GameObject Child(Transform go,string subnode)
     {
-        Transform trans=go.FindChild(subnode);
+        Transform trans=go.Find(subnode);
         if(trans==null)return null;
         return trans.gameObject;
      }
@@ -103,7 +102,7 @@ public class Util {
 
      public static GameObject Peer(Transform go,string subnode)
      {
-        Transform trans=go.parent.FindChild(subnode);
+        Transform trans=go.parent.Find(subnode);
         if(trans==null)return null;
         return trans.gameObject;  
      }
@@ -136,7 +135,7 @@ public class Util {
          byte[] bytes=Encoding.GetEncoding("utf-8").GetBytes(str);
          using(MD5CryptoServiceProvider mD5=new MD5CryptoServiceProvider())
          {
-             bytes[] result=mD5.ComputeHash(bytes);
+             byte[] result=mD5.ComputeHash(bytes);
              StringBuilder builder=new StringBuilder();
              for(int i=0;i<result.Length;i++)
              {
@@ -167,7 +166,7 @@ public class Util {
          try{
              FileStream fs=new FileStream(file,FileMode.Open);
              System.Security.Cryptography.MD5 mD5=new System.Security.Cryptography.MD5CryptoServiceProvider();
-             byte[] reVal=md5.ComputeHash(fs);
+             byte[] reVal=mD5.ComputeHash(fs);
              StringBuilder sb=new StringBuilder();
              for(int i=0;i<reVal.Length;i++)
              {
@@ -186,7 +185,7 @@ public class Util {
          if(go==null)return;
          for(int i=go.childCount-1;i>=0;i--)
          {
-             GameObject.Destroy(go.getChild(i).gameObject);
+             GameObject.Destroy(go.GetChild(i).gameObject);
          }
      }
 
@@ -247,7 +246,7 @@ public class Util {
     public static string DataPath { 
      get{
          string game=AppConst.AppName.ToLower();
-         if(ApplicationException.isMobilePlatform)
+         if(Application.isMobilePlatform)
             return Application.persistentDataPath+"/"+game+"/";
          else
             return Application.dataPath+"/"+AppConst.AssetDirName+"/";
@@ -270,15 +269,16 @@ public class Util {
 
       public static string AppContentPath()
       {
-          string path-string.Empty;
+          string path=string.Empty;
           switch(Application.platform){
               case RuntimePlatform.Android:
               path="jar:file://"+Application.dataPath+"!/assets/";
               break;
               case RuntimePlatform.IPhonePlayer:
               path=Application.dataPath+"/Raw/";
+              break;
               default:
-              path=Application.dataPath+"/"+AppConstDirName+"/";
+              path=Application.dataPath+"/"+AppConst.AssetDirName + "/";
               break;
           }
           return path;
