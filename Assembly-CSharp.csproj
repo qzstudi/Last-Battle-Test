@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AppConst.cs" />
+     <Compile Include="Assets\Scripts\ObjManager.cs" />
      <Compile Include="Assets\Scripts\ResourceManager.cs" />
      <Compile Include="Assets\Scripts\Util.cs" />
  <Reference Include="UnityEngine.UI">
