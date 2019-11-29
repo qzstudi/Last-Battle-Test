@@ -33,7 +33,7 @@ public class ObjManager : MonoBehaviour {
 
     public GameObject CreateAndLoadObj(string bundleName,string objName=null)
     {
-        ResourceManager resMgr = Facade.Instance.GetMananger<ResourceManager>("ResourceManager");
+        ResourceManager resMgr = Facade.Instance.GetManager<ResourceManager>("ResourceManager");
         AssetBundle bundle = resMgr.LoadBundle(bundleName);
         GameObject prefab = null;
         if (bundle==null)
@@ -72,7 +72,7 @@ public class ObjManager : MonoBehaviour {
     }
     public Material CreateAndLoadMat(string bundleName, string objName = null)
     {
-        ResourceManager resMgr = Facade.Instance.GetMananger<ResourceManager>("ResourceManager");
+        ResourceManager resMgr = Facade.Instance.GetManager<ResourceManager>("ResourceManager");
         AssetBundle bundle = resMgr.LoadBundle(bundleName);
         Material prefab = null;
         if (bundle == null)
@@ -94,7 +94,7 @@ public class ObjManager : MonoBehaviour {
 
     public Sprite CreateAndLoadSprite(string bundleName, string objName = null)
     {
-        ResourceManager resMgr = Facade.Instance.GetMananger<ResourceManager>("ResourceManager");
+        ResourceManager resMgr = Facade.Instance.GetManager<ResourceManager>("ResourceManager");
         AssetBundle bundle = resMgr.LoadBundle(bundleName);
         Sprite prefab = null;
         if (bundle == null)
@@ -113,13 +113,16 @@ public class ObjManager : MonoBehaviour {
         bundle.Unload(false);
         return go;
     }
-	// Use this for initialization
+
+    public void AddSpriteTexture(GameObject obj, string bundleName, string objName = null)
+    {
+        Sprite sp = CreateAndLoadSprite(bundleName, objName);
+        obj.GetComponent<Image>().sprite = sp;
+
+    }
+
+
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
 		
 	}
 }

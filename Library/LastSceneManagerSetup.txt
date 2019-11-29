@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/TDD.unity
+- path: Assets/Scenes/TDD.unity
   isLoaded: 1
   isActive: 1
